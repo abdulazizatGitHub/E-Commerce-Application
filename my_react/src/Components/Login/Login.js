@@ -13,8 +13,6 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const [customerDetails, setCustomerDetails] = useState([]);
-
   const [cridentialMismatch, setCridentialMismatch] = useState(false);
 
   const {email, password} = cridentials;
@@ -30,27 +28,20 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await getCustomer();
-      setCustomerDetails(result.data);
-      findCustomer();
+      const result = await getCustomer(email, password);
+      const {success} = result.data;
+
+      if(success)
+      {
+        navigate("/");
+      }
+      else{
+          setCridentialMismatch(true);
+      }
     } catch (error) {
       // Handle any errors that occurred during the API call
       alert("data not found");
     }
-  };
-  
-  const findCustomer = () => {
-    if (!customerDetails) {
-      return;
-    }
-    customerDetails.map((details) => {
-      if (details.email === email && details.pass === password) {
-        navigate("/");
-      }
-      else{
-        setCridentialMismatch(true);
-      }
-    });
   };
   
   useEffect(() => {

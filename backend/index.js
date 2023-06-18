@@ -12,8 +12,9 @@ const app = express();
 
 const url = process.env.MONGODB_URL;
 
-mongoose.connect(url, {useUnifiedTopology: true, useNewUrlParser: true})
-.then(() => {
+const conection = mongoose.connect(url, {useUnifiedTopology: true, useNewUrlParser: true})
+
+conection.then(() => {
     console.log("Successfully Connected to Database");
 });
 

@@ -2,9 +2,9 @@ import axios from "axios";
 
 const url = "http://localhost:5000";
 
-export const getCustomer = async () =>
+export const getCustomer = async (email, password) =>
 {
-   return await axios.get(`${url}/Login`);
+   return await axios.post(`${url}/Login`, {email, password} );
 }
 
 export const addCustomer = async (customerData) =>

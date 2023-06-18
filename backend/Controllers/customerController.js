@@ -55,10 +55,21 @@ export const addCustomer = async (req, res) =>
 
 export const getCustomer = async (req, res) =>
 {
+    const {email, password} = req.query;
+    console.log(email);
+    console.log(password);
     try {
-        const customerLogin = await customerSignupModel.find();
-        res.json(customerLogin);
+        const customerLogin = await customerSignupModel.find({email, password});
+        console.log(customerLogin);
+        if(customerLogin)
+        {
+            res.json({success: true, customerLogin});
+        }
+        else{
+            res.json({success: false})
+        }
     } catch (error) {
         console.log("Not found any data...");
+        res.json({success: false});
     }
 }
