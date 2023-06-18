@@ -10,7 +10,7 @@ function MenProduct() {
   useEffect(() => {
     window.scrollTo(0, 0);
     getMenProductDetails();
-  }, []);
+  },[]);
 
   const getMenProductDetails = async () =>
   {

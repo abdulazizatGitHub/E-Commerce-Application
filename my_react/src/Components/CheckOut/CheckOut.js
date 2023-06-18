@@ -15,22 +15,22 @@ function CheckOut() {
   const [quantity, setQuantity] = useState(1);
   const [productData, setProductData] = useState([]);
 
+  
   useEffect(() => {
     window.scrollTo(0, 0);
+  
+    const getProductDetails = async () => {
+      try {
+        const response = await getProductById(id);
+        setProductData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log("No data found...");
+      }
+    };
+  
     getProductDetails();
-    
-  }, []);
-
-  const getProductDetails =async () =>
-  {
-    try {
-      const response = await getProductById(id);
-      setProductData(response.data);
-      console.log(productData);
-    } catch (error) {
-      console.log("No data found...")
-    }
-  }
+  }, [id]);
 
   const increaseQuantity = () =>
 {
