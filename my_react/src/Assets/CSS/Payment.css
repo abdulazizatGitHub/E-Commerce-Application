@@ -1,0 +1,162 @@
+.payment-div{
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Poppins', sans-serif;
+}
+.payment-container{
+    width: 45%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+    margin-top: 2.5rem;
+}
+.payment-container h5{
+    font-weight: bold;
+}
+.payment-container h6{
+    font-weight: 600;
+}
+.payments{
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center; 
+    margin-top: -5rem;
+}
+.payments span{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 600;
+    width: 30%;
+    height: 4rem;
+    margin-top: 2rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    box-shadow: -7px 7px 16px #0F1B31,
+                10px -10px 20px #ffffff;
+}
+.payments span:hover{
+    transform: scale(0.9);
+}
+.form-contain{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    
+}
+.form-div{
+    margin-top: -2rem;
+}
+.form-contain input{
+    border-radius: 0.5rem;
+    height: 2.5rem;
+}
+.form-contain input:focus{
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 1px #242424;
+    background-color: transparent;
+    color: black;
+}
+.name-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.name-div input{
+    border-radius: 0.5rem;
+    width: 40%;
+}
+.address-details{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+}
+.address-details select{
+    height: 2.5rem;
+    border-radius: 0.5rem;
+}
+.order-div{
+    width: 40%;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 1.5rem;
+    margin-top: 1rem;
+}
+.order-details{
+    height: 60%;
+}
+.order-details h5{
+    font-weight: bold;
+    margin-left: 32%;
+    margin-top: 1rem;
+}
+.final-detail{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: -7px 7px 16px #0F1B31,
+                10px -10px 20px #ffffff;
+                border-radius: 1rem;
+}
+.pay-img_container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.pay-img{
+    width: 20%;
+    height: 20%;
+}
+.summary-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+}
+.price-label{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1.5rem;
+    border-bottom: 1px solid gray;
+}
+.price-no{
+    margin-right: 1.5rem;
+}
+.devide{
+    height: 1px;
+    color: #5a5a5a;
+}
+.payment-btn{
+    width: 80%;
+    height: 3rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    position: absolute;
+    top: 57rem;
+
+}
+.payment-btn button{
+    font-weight: 600;
+    background-color: #385C88;
+    color: #ffffff;
+    border-radius: 0.5rem;
+}
+.payment-btn button:hover{
+    transform: scale(0.9);
+}

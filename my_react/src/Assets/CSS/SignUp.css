@@ -1,0 +1,171 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 88vh;
+    width: 37%;
+    background-color: #fff;
+    padding: 1.3rem;
+    margin-top: -0.5rem;
+    position: relative;
+    transform: translate(26rem, 3%);
+    border: 1px solid black;
+    box-shadow: 0px 106px 42px rgba(0, 0, 0, 0.01),
+      0px 59px 36px rgba(0, 0, 0, 0.05), 0px 26px 26px rgba(0, 0, 0, 0.09),
+      0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 0.6rem;
+    font-family: 'Poppins', sans-serif;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  .background-pic {
+    position: relative;
+}
+.background-pic::after {
+    content: "";
+    opacity: 0.9;
+    background:  url('../Images/login_background.png') no-repeat fixed top;
+    background-blend-mode: luminosity;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+    height: 91vh;
+}
+  .title-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+  }
+  .title {
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }
+  
+  .title::before,.title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: royalblue;
+  }
+  
+  .title::before {
+    width: 18px;
+    height: 18px;
+    background-color: royalblue;
+  }
+  
+  .title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+  }
+  
+  .message, .signin {
+    color: rgba(105, 103, 103, 0.822);
+    font-size: 14px;
+  }
+  
+  .signin {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .signin-link {
+    color: royalblue;
+  }
+  
+  .signin-link {
+    text-decoration: underline royalblue;
+  }
+  
+  .Name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .name-input{
+    width: 40%;
+    height: 2.5rem;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+    filter: drop-shadow(0px 1px 0px #efefef)
+      drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+  .details{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .input{
+    height: 2.5rem;
+  }
+  .input {
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+    filter: drop-shadow(0px 1px 0px #efefef)
+      drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+  }
+  .input:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 1px #242424;
+    background-color: transparent;
+    color: #e5e5e5;
+  }
+  .name-input:focus {
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 0px 1px #242424;
+    background-color: transparent;
+    color: #e5e5e5;
+  }
+  .submit {
+    border: none;
+    outline: none;
+    height: 2.5rem;
+    background-image: linear-gradient(to right, #0F1B31, #385C88);
+    padding: 0.7rem;
+    margin-top: 0.5rem;
+    border-radius: 1.5rem;
+    color: #fff;
+    font-size: 1rem;
+    transform: .3s ease;
+  }
+  
+  .submit:hover {
+    transition: 0.2s;
+    transform: scale(0.9);
+  }
+
+
+  
+  @keyframes pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }

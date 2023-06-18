@@ -1,0 +1,68 @@
+import { ObjectId } from "mongodb";
+import ProductModel from "../Models/ProductCollection.js"
+
+export const addProduct = async (req, res) => {
+    const {name, category, discription, dialradius, price, image} = req.body;
+    
+    try {
+      // Create a new instance of the Product model and populate it with the data
+      const newProduct = new ProductModel({
+            name,
+            category,
+            discription,
+            dialradius,
+            price,
+            image: req.file.path
+      });
+  
+      // Save the new product to the database
+      const savedProduct = await newProduct.save();
+  
+      // Send a success response
+      res.json({ Response: true, message: 'Product added successfully'});
+      console.log('Product added successfully');
+    } catch (error) {
+      // Handle any errors and send an error response
+      console.error(error);
+      res.status(500).json({ message: 'Failed to add product' });
+    }
+  };
+
+export const getProducts = async (req, res) =>
+{
+    try {
+        const productData = await ProductModel.find();
+        res.json(productData);
+    } catch (error) {
+        console.log("Not found any data..");
+    }    
+}
+
+export const getProductByCategory = async (req, res) => {
+  const {category} = req.body;
+  console.log(category)
+  try {
+    const menProducts = await ProductModel.find();
+    const filteredProducts =menProducts.filter((product)=> product.category===category)
+    console.log(filteredProducts)
+    res.json(filteredProducts)
+  } catch (error) {
+    console.log("No data found...");
+  }
+};
+
+
+export const getProductById = async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const product = await ProductModel.findById(productId);
+    console.log(product);
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+    res.json(product);
+  } catch (error) {
+    console.log('Error retrieving product details:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};

@@ -1,0 +1,107 @@
+.adminHeader{
+    position: relative;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 0 0 0.5rem 0.5rem;
+    background-image: linear-gradient(to top right, #0F1B31, #385C88);
+    box-shadow: -7px 7px 16px #586f96,
+                5px -5px 5px #ffffff;
+}
+.brandLogo{
+    height: 10rem;
+    width: 12%;
+    margin-left: 7rem;
+    margin-top: 1rem;
+}
+
+.admin-menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+    gap: 4rem;
+}
+.Menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1rem;
+    width: 45%;
+    gap: 2rem;
+}
+.menu-link{
+    text-decoration: none;
+    font-weight: 400    ;
+    color: #ffffff;
+}
+
+.product-from
+{
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    max-width: 40%;
+}
+.search-bar {
+    width: 50%;
+    height: 2.1rem;
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    border-radius: 1rem;
+    gap: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .search-input {
+    width: 0;
+    height: 100%;
+    border-radius: 1rem;
+    border: transparent;
+    transition: width 0.5s ease-in-out;
+    animation: slide-in 0.5s forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes slide-in {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 19rem;
+    }
+  }
+  
+  .search-button {
+    height: 2.5rem;
+    width: 3rem;
+    border-radius: 1.2rem;
+  }
+  
+  .search-logo {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    transition: 0.2s linear;
+  }
+  
+  .search-bar.hide .search-input {
+    animation: slide-out 0.5s forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes slide-out {
+    0% {
+      width: 19rem;
+    }
+    100% {
+      width: 0;
+    }
+  }
+  
+  

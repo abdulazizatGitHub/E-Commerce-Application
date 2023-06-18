@@ -1,0 +1,139 @@
+.about-page{
+    width: 100%;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+.brand-detail{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    position: relative;
+    width: 60%;
+    height: 35vh;
+    background-color: #fff;
+    margin-top: 3rem;
+    margin-left: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+.brand-img{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    border-radius: 1rem;
+}
+.brand-img img{
+    width: 100%;
+    height: 100%;
+}
+.brand-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+.brand-text h4{
+    font-weight: 600;
+}
+.brand-story{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    position: relative;
+    width: 60%;
+    height: 35vh;
+    background-color: #fff;
+    margin-top: 3rem;
+    margin-left: 39%;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+.story-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+}
+.story-detail h4{
+    font-weight: 600;
+}
+.story-img{
+    width: 60rem;
+    height: 100%;
+}
+.story-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+.brand-vision{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    position: relative;
+    width: 60%;
+    height: 35vh;
+    background-color: #fff;
+    margin-top: 3rem;
+    margin-left: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+.vision-detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+.vision-img{
+    width: 60rem;
+    height: 100%;
+}
+.vision-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+.vision-detail h4{
+    font-weight: 600;
+}
+.team-member_1{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    position: relative;
+    width: 60%;
+    height: 35vh;
+    background-color: #fff;
+    margin-top: 3rem;
+    margin-left: 39%;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+.member-1_img{
+    width: 60rem;
+    height: 100%;
+}
+.member-1_img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+.team-member_detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+.team-member_detail h4{
+    font-weight: 600;
+}
+.about-page h2{
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-left: 40%;
+}

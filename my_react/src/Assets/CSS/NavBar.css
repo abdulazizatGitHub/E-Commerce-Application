@@ -1,0 +1,84 @@
+
+.container-fluid{
+    height: 11vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to right, #0F1B31, #385C88);
+    border-radius: 3px;
+    font-family: 'Poppins', sans-serif;
+}
+.nav{
+    position: relative;
+    gap: 3rem;
+
+}
+.nav ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2rem;
+    margin-top: 3rem;
+
+}
+.nav-text{
+    margin-left: 2rem;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    border: 1rem 1rem 1rem;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+.img{
+    position: relative;
+    left: -10%;
+    width: 20rem;
+    height: 10rem;
+    margin-bottom: -2rem;
+}
+.nav-text:hover{
+    transition: 0.4s;
+    background-color: #fff;
+    border-radius: 1rem 1rem 1rem;
+    color: #385C88;
+    font-weight: bold;
+}
+.cart-trolley{
+    position: relative;
+    right: -20%;
+}
+.cart-icon{
+    position: relative;
+    font-size: 1.8rem;
+    margin-right: 1.5rem;
+    color: #fff;
+}
+.cart-total{
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    background-color: royalblue;
+    color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    top: -20%;
+    left: 35%;
+
+}
+
+
+
+
+
+aside.sidebar-left#resizable {
+    height: 100vh;
+    min-width: 200px;
+  }
+  
+  @media (min-width: 768px) {
+    .wrapper .sidebar-left {
+      top: 0;
+    }
+  }

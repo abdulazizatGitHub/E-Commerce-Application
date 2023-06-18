@@ -1,0 +1,136 @@
+.cont{
+    position: relative;
+}
+.cart-contain{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border-radius: 1rem;
+    box-shadow: -7px 7px 16px #5a5a5a,
+                10px -10px 20px #ffffff;
+}
+.cart-product_details{
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.cart-image
+{
+    width: 7rem;
+    margin-right: 1rem;
+}
+.cart-img{
+    width: 100%;
+    height: 100%;
+}
+.prod-details
+{
+   flex-grow: 1;
+   display: flex;
+   align-items: center;
+   gap: 5rem;
+}
+.cart-item_name{
+    font-weight: bold;
+}
+.cart-item_price{
+    width: 10%;
+    height: 20%;
+    gap: 1rem;
+}
+.cart-quantity{
+    display: flex;
+    justify-content: space-between;
+    width: 12%;
+    align-items: center;
+}
+.cart-quantity span{
+    cursor: pointer;
+    padding: 0.5rem;
+}
+.quantity-btn{
+    background-color: #385C88;
+    color: #fff;
+}
+.quantity-btn:hover{
+    transform: scale(0.9);
+}
+.total-price{
+    margin-top: 1rem;
+}
+.trash{
+    height: 1.3rem;
+    cursor: pointer;
+    color: brown;
+}
+.trash:hover{
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+.btn-container{
+    width: 80%;
+    height: 15%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-color: #385C88;
+    cursor: pointer;
+}
+.pay-button{
+    width: 100%;
+    align-items: center;
+    font-weight: bolder;
+    text-transform: uppercase;
+    color: #fff;
+}
+.pay-icon{
+    width: 1.3rem;
+    height: 2rem;
+}
+.btn-container:hover{
+    transition: 0.2s;
+    box-shadow: -7px 7px 16px #5a5a5a,
+    10px -10px 20px #ffffff;
+}
+.checkout-div{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    gap: 3rem;
+    margin-top: 5rem;
+}
+.sub-total{
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+}
+
+
+@keyframes shake{
+    10%, 90%{
+        transform: translate3d(0, 0, 0);
+    }
+    20%, 80%{
+        transform: translate3d(1px, 0, 0);
+    }
+    30%, 50%, 70%{
+        transform: translate3d(-3px, 0, 0);
+    }
+    40%, 60%{
+        transform: translate3d(3px, 0, 0);
+    }
+    
+}
