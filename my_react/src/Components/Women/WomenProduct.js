@@ -30,7 +30,7 @@ function WomenProduct()
             <div className='link' key={item._id}>
               <CarD
               id={item._id}
-                img={`http://localhost:5000/${item.image}`}
+                img={`https://watchgallery-data.onrender.com/${item.image}`}
                 name={item.name}
                 discription={item.discription}
                 dial={item.dialradius}

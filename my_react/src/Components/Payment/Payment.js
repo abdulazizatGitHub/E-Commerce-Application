@@ -62,7 +62,7 @@ function Payment() {
                         {cartItems.map((item => (
                             <div className="final-detail">
                                 <span className="pay-img_container">
-                                <img className='pay-img' variant='top' src={`http://localhost:5000/${item.image}`} alt="" />
+                                <img className='pay-img' variant='top' src={`https://watchgallery-data.onrender.com/${item.image}`} alt="" />
                                     <span className="pay-name">{item.name}</span>
                                     <span className="pay-quantity">{item.quantity}</span>
                                     <span className="pay-price">&#8360;.{item.price}</span>

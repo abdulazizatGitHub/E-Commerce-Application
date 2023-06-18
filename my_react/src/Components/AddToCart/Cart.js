@@ -22,7 +22,7 @@ function Cart() {
                     cartItems.map((item) => (
                         <div className='cart-product_details'>
                             <div className='cart-image'>
-                            <img className='cart-img' variant='top' src={`http://localhost:5000/${item.image}`} alt="" />
+                            <img className='cart-img' variant='top' src={`https://watchgallery-data.onrender.com/${item.image}`} alt="" />
                             </div>
                             <div className='prod-details'>
                                 <div className='cart-item_name'>

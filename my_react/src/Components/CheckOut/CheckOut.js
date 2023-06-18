@@ -60,7 +60,7 @@ const decreaseQuantity = () =>
     <div>
         <div className='checkout'>
       <div className='img-div'>
-      <img className='checkout-img' src={`http://localhost:5000/${productData.image}`} alt='' />
+      <img className='checkout-img' src={`https://watchgallery-data.onrender.com/${productData.image}`} alt='' />
       </div>
       <div className='checkout-details'>
         <h2 className='checkout-productName'>{productData.name}</h2>
