@@ -33,7 +33,7 @@ function ViewProduct() {
           <tbody>
             {ProductDetails.map((details, index) => (
               <tr key={index}>
-                <img style={{width: "5rem", height: "5rem"}} src={`http://localhost:5000/${details.image}`} alt="Product" />
+                <img style={{width: "5rem", height: "5rem"}} src={`https://watchgallery-data.onrender.com/${details.image}`} alt="Product" />
                 <td>{details.name}</td>
                 <td>{details.discription}</td>
                 <td>{details.dialradius}</td>
