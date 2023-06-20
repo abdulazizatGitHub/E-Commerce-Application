@@ -55,7 +55,7 @@ export const addCustomer = async (req, res) =>
 
 export const getCustomer = async (req, res) =>
 {
-    const {email, password} = req.query;
+    const {email, password} = req.body;
     console.log(email);
     console.log(password);
     try {

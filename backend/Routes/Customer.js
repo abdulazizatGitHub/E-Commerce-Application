@@ -5,6 +5,6 @@ const router = express.Router();
 router.post("/", addCustomer);
 // router.post("/SignUp/Google", addGoogleCustomer);
 
-router.post("/get", getCustomer);
+router.post("/", getCustomer);
 
 export default router;
