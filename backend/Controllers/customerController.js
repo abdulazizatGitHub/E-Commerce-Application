@@ -55,11 +55,12 @@ export const addCustomer = async (req, res) =>
 
 export const getCustomer = async (req, res) =>
 {
-    const {email, password} = req.body;
-    console.log(email);
-    console.log(password);
+    const email = req.body.email;
+    const password = req.body.password;
+
+    
     try {
-        const customerLogin = await customerSignupModel.find({email, password});
+        const customerLogin = await customerSignupModel.find({email: email, pass: password});
         console.log(customerLogin);
         if(customerLogin)
         {

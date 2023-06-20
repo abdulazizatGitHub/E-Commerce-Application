@@ -28,7 +28,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await getCustomer(email, password);
+      const result = await getCustomer(cridentials);
       const {success} = result.data;
 
       if(success)

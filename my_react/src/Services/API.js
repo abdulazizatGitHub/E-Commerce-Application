@@ -2,9 +2,9 @@ import axios from "axios";
 
 const url = "https://watchgallery-data.onrender.com";
 
-export const getCustomer = async (email, password) =>
+export const getCustomer = async (cridentials) =>
 {
-   return await axios.post(`${url}/Login`, {email, password} );
+   return await axios.post(`${url}/Login`, cridentials);
 }
 
 export const addCustomer = async (customerData) =>
