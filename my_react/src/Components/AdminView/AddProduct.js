@@ -26,6 +26,7 @@ function Example() {
   {
     setProductData({...productData, [e.target.name]: e.target.files[0]});
   }
+  
   const handleSubmitData = async (e) => {
     e.preventDefault();
   

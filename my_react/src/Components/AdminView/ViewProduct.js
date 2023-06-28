@@ -1,7 +1,8 @@
 import Table from 'react-bootstrap/Table';
 import { useEffect, useState } from 'react';
-import { getProductData } from '../../Services/API';
+import { deleteProduct, getProductData } from '../../Services/API';
 import AdminHeader from './AdminHeader';
+import { FaTrash } from 'react-icons/fa';
 
 function ViewProduct() {
   const [ProductDetails, setProductDetails] = useState([]);
@@ -15,6 +16,10 @@ function ViewProduct() {
     setProductDetails(result.data);
   }
 
+  const handleDeleteProduct = async (id) =>
+  {
+    await deleteProduct(id);
+  }
   return (
     <>
       <AdminHeader />
@@ -39,6 +44,7 @@ function ViewProduct() {
                 <td>{details.dialradius}</td>
                 <td>{details.category}</td>
                 <td>{details.price}</td>
+                <td><FaTrash style={{cursor: "pointer"}} onClick={() => handleDeleteProduct(details._id)} /></td>
               </tr>
             ))}
           </tbody>

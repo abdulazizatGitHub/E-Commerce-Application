@@ -30,7 +30,7 @@ function Login() {
     try {
       const result = await getCustomer(cridentials);
       const {success} = result.data;
-
+      alert("Data found...");
       if(success)
       {
         navigate("/");

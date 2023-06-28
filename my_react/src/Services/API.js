@@ -4,6 +4,7 @@ const url = "https://watchgallery-data.onrender.com";
 
 export const getCustomer = async (cridentials) =>
 {
+   console.log(cridentials);
    return await axios.post(`${url}/Login`, cridentials);
 }
 
@@ -30,4 +31,8 @@ export const getProductByCategory = async (category) =>
 export const getProductById = async (id) =>
 {
    return await axios.get(`${url}/CheckOut/${id}`);
+}
+export const deleteProduct = async (id) =>
+{
+   return await axios.delete(`${url}/Admin/ViewProduct/${id}`)
 }
