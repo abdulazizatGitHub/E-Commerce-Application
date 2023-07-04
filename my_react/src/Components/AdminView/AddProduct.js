@@ -14,7 +14,7 @@ function Example() {
     dialradius: "",
     price: 0,
     image: null
-  })
+  });
 
   const { name, category, discription, dialradius, price, image } = productData;
 

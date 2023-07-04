@@ -26,7 +26,7 @@ app.use(cors());
 app.use(bodyParser.json( { extended: true } ));
 app.use(bodyParser.urlencoded( { extended: true } ));
 app.use('/SignUp', Customer);
-app.use("/Login", Login);
+app.use('/Login', Login);
 
 app.use('/Admin/AddProduct', ProductData);
 app.use('/Admin/ViewProduct',ProductData);
@@ -35,4 +35,4 @@ app.use('/images',express.static('images'));
 app.use('/MenProduct', ProductData);
 app.use('/WomenProduct', ProductData);
 app.use('/CheckOut', ProductData);
-app.use('/Admin/ViewProduct/:id', ProductData);
+// app.use('/Admin/ViewProduct/:id', ProductData);

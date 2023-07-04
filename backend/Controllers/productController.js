@@ -1,4 +1,4 @@
-import { ObjectId } from "mongodb";
+
 import ProductModel from "../Models/ProductCollection.js"
 
 export const addProduct = async (req, res) => {
@@ -68,13 +68,12 @@ export const getProductById = async (req, res) => {
 };
 
 export const deleteProduct = async (req, res) =>{
-  const productId = req.params.id;
-  
+  const { productId } = req.params;
   try {
-    const result = await ProductModel.findByIdAndRemove({productId});
-    console.log(result);
+    await ProductModel.findByIdAndDelete(productId);
   } catch (error) {
     console.log(error);
   }
-  
-}
+};
+
+

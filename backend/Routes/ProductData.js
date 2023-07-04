@@ -25,6 +25,6 @@ router.post("/category",getProductByCategory);
 
 router.get("/:id", getProductById);
 
-router.delete("/:id", deleteProduct);
+router.delete("/:productId", deleteProduct);
 
 export default router;
