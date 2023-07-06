@@ -1,12 +1,16 @@
 
 import '../../Assets/CSS/Payment.css';
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../Common/Context";
 import { useNavigate } from "react-router-dom";
 import Footer from '../ProductPage/Footer';
 function Payment() {
     const { cartItems, totalPrice } = useContext(MyContext);
-
+    const [ paymentData, setPaymentData ] = useState({
+        email: '',
+        address: '',
+        city: '',
+    })
     const navigate = useNavigate();
     const navigateToHome = () =>
     {
@@ -29,16 +33,16 @@ function Payment() {
                 <div className="form-div">
                     <h6>SHIPPING DETAILS</h6>
                     <form className="form-contain">
-                        <input type="email" placeholder="Email" />
-                        <div className="name-div">
+                        <input name='email' type="email" placeholder="Email" />
+                        {/* <div className="name-div">
                             <input type="text" placeholder="First Name" />
                             <input type="text" placeholder="Last Name" />
-                        </div>
+                        </div> */}
                         <div className="address-details">
-                            <input type="text" placeholder="Shipping Address" />
-                            <input type="text" placeholder="City" />
-                            <input type="text" placeholder="Zip/Postal Code" />
-                            <select size='1'>
+                            <input name='address' type="text" placeholder="Shipping Address" />
+                            <input name='city' type="text" placeholder="City" />
+                            {/* <input type="text" placeholder="Zip/Postal Code" /> */}
+                            {/* <select size='1'>
                                 <option value="" disabled selected>Country/Region</option>
                                 <option>Pakistan</option>
                             </select>
@@ -48,8 +52,8 @@ function Payment() {
                                 <option>Punjab</option>
                                 <option>Sindh</option>
                                 <option>Balochistan</option>
-                            </select>
-                            <input type="text" placeholder="Phone Number" />
+                            </select> */}
+                            {/* <input type="text" placeholder="Phone Number" /> */}
                         </div>
                     </form>
                 </div>

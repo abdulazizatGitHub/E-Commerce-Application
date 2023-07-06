@@ -58,6 +58,7 @@
     margin-top: -2rem;
 }
 .form-contain input{
+    width: 20rem;
     border-radius: 0.5rem;
     height: 2.5rem;
 }
@@ -148,7 +149,7 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     position: absolute;
-    top: 57rem;
+    top: 40rem;
 
 }
 .payment-btn button{
