@@ -1,5 +1,4 @@
 import customerSignupModel from '../Models/CustomerCollection.js';
-import jwt from 'jsonwebtoken';
 
 export const addCustomer = async (req, res) =>
 {
@@ -29,7 +28,14 @@ export const addCustomer = async (req, res) =>
         });
         
         const token = await newCustomer.generateAuthToken();
+        console.log(token);
+        res.cookie("jwt", token, {
+            expires:new Date(Date.now() + 5000),
+            httpOnly: true,
+            secure: true
+        })
 
+        console.log("response sent");
         await newCustomer.save();
         res.json({response: true});
 
@@ -67,7 +73,7 @@ export const getCustomer = async (req, res) =>
         
         const token = await customerLogin.generateAuthToken();
         console.log("token part is" + token);
-        
+
         if( customerLogin.pass === password )
         {
             res.json({success: true, customerLogin});

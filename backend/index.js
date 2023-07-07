@@ -8,6 +8,7 @@ import ProductData from './Routes/ProductData.js';
 import Login from './Routes/Login.js';
 import DeleteProduct from './Routes/DeleteProduct.js';
 import jazzcashRoutes from "./Routes/Payment.js";
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
@@ -26,6 +27,8 @@ app.listen(5000);
 app.use(cors());
 app.use(bodyParser.json( { extended: true } ));
 app.use(bodyParser.urlencoded( { extended: true } ));
+app.use(cookieParser());
+
 app.use('/SignUp', Customer);
 app.use('/Login', Login);
 
