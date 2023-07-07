@@ -1,35 +1,41 @@
 import customerSignupModel from '../Models/CustomerCollection.js';
+import jwt from 'jsonwebtoken';
 
 export const addCustomer = async (req, res) =>
 {
-    const firstName = req.body.firstName;
-    const firstNameInStringFormat = firstName.toString();    
-
-    const lastName = req.body.lastName;
-    const lastNameInStringFormat = lastName.toString(); 
-
-    const email = req.body.email;
-    const emailInStringFormat = email.toString();
-    
-    const pass = req.body.pass;
-    const passInStringFormat = pass.toString(); 
-
-    const confirmPass = req.body.confirmPass;
-    const confirmPassInStringFormat = confirmPass.toString(); 
-
-    const newCustomer = new customerSignupModel({
-        firstName: firstNameInStringFormat,
-        lastName: lastNameInStringFormat,
-        email: emailInStringFormat,
-        pass: passInStringFormat,
-        confirmPass: confirmPassInStringFormat
-    })
 
     try {
+        const firstName = req.body.firstName;
+        const firstNameInStringFormat = firstName.toString();    
+
+        const lastName = req.body.lastName;
+        const lastNameInStringFormat = lastName.toString(); 
+
+        const email = req.body.email;
+        const emailInStringFormat = email.toString();
+    
+        const pass = req.body.pass;
+        const passInStringFormat = pass.toString(); 
+
+        const confirmPass = req.body.confirmPass;
+        const confirmPassInStringFormat = confirmPass.toString(); 
+
+        const newCustomer = new customerSignupModel({
+            firstName: firstNameInStringFormat,
+            lastName: lastNameInStringFormat,
+            email: emailInStringFormat,
+            pass: passInStringFormat,
+            confirmPass: confirmPassInStringFormat
+        });
+        
+        const token = await newCustomer.generateAuthToken();
+
         await newCustomer.save();
-        res.json(newCustomer);
+        res.json({response: true});
+
     } catch (error) {
         console.log("Not saved...", error);
+        res.json({response: false});
     }
 }
 
@@ -59,6 +65,9 @@ export const getCustomer = async (req, res) =>
     try {
         const customerLogin = await customerSignupModel.findOne({ email });
         
+        const token = await customerLogin.generateAuthToken();
+        console.log("token part is" + token);
+        
         if( customerLogin.pass === password )
         {
             res.json({success: true, customerLogin});
@@ -71,3 +80,29 @@ export const getCustomer = async (req, res) =>
         res.json({success: false});
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const createToken = async () =>
+// {
+//     const token = await jwt.sign({_id:"648f3fa74a1d5b761f9d8f37"}, "mynameisabdulazizandiamastudent");
+
+//     const userVarification = await jwt.verify(token, "mynameisabdulazizandiamastudent");
+// }
+// createToken();
