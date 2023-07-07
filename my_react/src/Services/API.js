@@ -35,3 +35,13 @@ export const deleteProduct = async (productId) =>
 {
    return await axios.delete(`${url}/Admin/ViewProduct/${productId}`);
 }
+
+export const initiateJazzCashPayment = async (paymentData) => {
+   try {
+     const response = await axios.post(`${url}/JazzCashPayment`, paymentData);
+     return response.data;
+   } catch (error) {
+     console.error(error);
+     throw new Error('Failed to initiate JazzCash payment');
+   }
+ };

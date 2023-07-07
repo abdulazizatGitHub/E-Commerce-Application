@@ -14,7 +14,7 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Admin from "./Components/AdminView/Admin";
 import ViewProduct from "./Components/AdminView/ViewProduct";
 import Example from "./Components/AdminView/AddProduct";
-
+import PaymentCheckout from "./Components/Payment/paymentCheckout";
 
 function App()
 {
@@ -40,6 +40,7 @@ function App()
           <Route path="/Admin" element = {<Admin />} />
           <Route path="/Admin/AddProduct" element = {<Example />} />
           <Route path="/Admin/ViewProduct" element = {<ViewProduct />} />
+          <Route path="/paymentCheckout" element = { <PaymentCheckout /> } />
         </Routes>
     </div>
   );

@@ -7,6 +7,7 @@ import Customer from './Routes/Customer.js';
 import ProductData from './Routes/ProductData.js';
 import Login from './Routes/Login.js';
 import DeleteProduct from './Routes/DeleteProduct.js';
+import jazzcashRoutes from "./Routes/Payment.js";
 
 dotenv.config();
 
@@ -36,3 +37,6 @@ app.use('/MenProduct', ProductData);
 app.use('/WomenProduct', ProductData);
 app.use('/CheckOut', ProductData);
 // app.use('/Admin/ViewProduct/:id', ProductData);
+
+app.use(express.json());
+app.use("/Payment", jazzcashRoutes);
