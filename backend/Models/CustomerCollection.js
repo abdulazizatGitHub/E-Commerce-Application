@@ -5,18 +5,14 @@ const customerStructure = mongoose.Schema({
     lastName: String,
     email: String, 
     pass: String,
-    confirmPass: String,
-    tokens:[{
-        token: String
-    }]
+    confirmPass: String
 });
 
 //generating tokens
-customerStructure.methods.generateAuthToken = async function(){
+customerStructure.methods.generateAuthToken = async function(id){
     try {
-        const token = jwt.sign({_id:this._id.toString()}, process.env.SECRET_KEY);
-        this.tokens = this.tokens.concat({token});
-        await this.save();
+        const token = jwt.sign({id:this._id}, process.env.SECRET_KEY);
+        jwt.verify(token, process.env.SECRET_KEY);
         return token;
     } catch (error) {
         console.log("Error: " + error);

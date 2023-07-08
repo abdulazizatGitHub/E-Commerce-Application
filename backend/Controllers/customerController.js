@@ -27,15 +27,6 @@ export const addCustomer = async (req, res) =>
             confirmPass: confirmPassInStringFormat
         });
         
-        const token = await newCustomer.generateAuthToken();
-        console.log(token);
-        res.cookie("jwt", token, {
-            expires:new Date(Date.now() + 5000),
-            httpOnly: true,
-            secure: true
-        })
-
-        console.log("response sent");
         await newCustomer.save();
         res.json({response: true});
 
@@ -71,12 +62,13 @@ export const getCustomer = async (req, res) =>
     try {
         const customerLogin = await customerSignupModel.findOne({ email });
         
-        const token = await customerLogin.generateAuthToken();
-        console.log("token part is" + token);
+        const token = await customerLogin.generateAuthToken(customerLogin._id);
 
         if( customerLogin.pass === password )
         {
-            res.json({success: true, customerLogin});
+            const isAdmin = customerLogin.email === "admin@gmail.com";
+
+            res.json({success: true, customerLogin, token, isAdmin});
         }
         else{
             res.json({success: false})

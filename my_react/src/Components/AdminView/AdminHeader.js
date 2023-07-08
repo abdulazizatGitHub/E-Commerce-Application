@@ -9,6 +9,24 @@ import { Link } from 'react-router-dom';
 
 function AdminHeader() {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [ showSessionData, setShowSessionData ] = useState(false);
+
+  const session = JSON.parse(localStorage.getItem('admin'));
+
+  const handleAdminSession = () => {
+    if(session) {
+        setShowSessionData(!showSessionData);
+    } else {
+        window.location.href = '/Login';
+    }
+}
+
+const handleLogout = () => {
+    localStorage.removeItem('admin');
+    localStorage.removeItem('token');
+    setShowSessionData(false);
+    window.location.href = '/Login';
+}
 
   const handleSearchToggle = () => {
     setIsSearchVisible((prevState) => !prevState);
@@ -39,7 +57,17 @@ function AdminHeader() {
             placeholder="Search"
           />
         </div>
+        <div className='display-session' onClick={handleAdminSession}></div>
       </div>
+      {session && showSessionData && (
+                <div  className='session'>
+                    <p>Status: Login</p>
+                    <p>UserName: {session.firstName} {session.lastName} </p>
+                    <p>{session.email} </p>
+                    <button className='logout-btn' onClick={handleLogout}>Logout</button>
+                </div>
+            )
+            }
     </header>
   );
 }

@@ -5,12 +5,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getCustomer } from '../../Services/API';
 import { GoogleLogin } from "@react-oauth/google";
 // import getCridentials from '../../Services/API';
+
 function Login() {
   const [cridentials, setCridentials] = useState({
     email: "",
     password: ""
   });
-
+  
+  
   const navigate = useNavigate();
 
   const [cridentialMismatch, setCridentialMismatch] = useState(false);
@@ -29,10 +31,18 @@ function Login() {
     e.preventDefault();
     try {
       const result = await getCustomer(cridentials);
-      const {success} = result.data;
+      const {success, token, customerLogin, isAdmin} = result.data;
       if(success)
       {
-        navigate("/");
+        localStorage.setItem('token', token);
+        
+        if(isAdmin) {
+          localStorage.setItem('admin', JSON.stringify(customerLogin));
+          navigate('/Admin');
+        } else {
+          localStorage.setItem('customer', JSON.stringify(customerLogin));
+          navigate("/");
+        }
       }
       else{
           setCridentialMismatch(true);

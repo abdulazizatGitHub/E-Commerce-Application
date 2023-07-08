@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { MyContext } from '../../Common/Context';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../ProductPage/Footer';
-import { initiateJazzCashPayment } from '../../Services/API'; 
 import JazzcashForm from './paymentCheckout';
 import '../../Assets/CSS/Payment.css';
 function Payment() {

@@ -12,7 +12,6 @@ const MYContextProvider = ({children}) =>
   const [cartTotal, setCartTotal] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-
   useEffect(() => {
     let TotalPrice = 0;
     cartItems.map(item => TotalPrice += item.price * item.quantity)
