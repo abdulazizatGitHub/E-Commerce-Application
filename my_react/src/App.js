@@ -15,6 +15,7 @@ import Admin from "./Components/AdminView/Admin";
 import ViewProduct from "./Components/AdminView/ViewProduct";
 import Example from "./Components/AdminView/AddProduct";
 import PaymentCheckout from "./Components/Payment/paymentCheckout";
+import ForgotPassword from "./Components/Login/ForgotPassword";
 
 function App()
 {
@@ -41,6 +42,7 @@ function App()
           <Route path="/Admin/AddProduct" element = {<Example />} />
           <Route path="/Admin/ViewProduct" element = {<ViewProduct />} />
           <Route path="/paymentCheckout" element = { <PaymentCheckout /> } />
+          <Route path="/Login/ForgotPassword" element = { <ForgotPassword /> } />
         </Routes>
     </div>
   );

@@ -28,7 +28,8 @@ app.use(bodyParser.json( { extended: true } ));
 app.use(bodyParser.urlencoded( { extended: true } ));
 app.use('/SignUp', Customer);
 app.use('/Login', Login);
-
+app.use('/', Customer);
+app.use('/Login/ForgotPassword', Login);
 app.use('/Admin/AddProduct', ProductData);
 app.use('/Admin/ViewProduct',ProductData);
 app.use('/images',express.static('images'));

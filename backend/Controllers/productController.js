@@ -76,4 +76,28 @@ export const deleteProduct = async (req, res) =>{
   }
 };
 
+export const UpdateProduct = async (req, res) => {
+  console.log(req.body);
+  try {
+    const {id} = req.params;
+    const {name, category, discription, dialradius, price} = req.body;
 
+    console.log(id);
+    console.log(price);
+    const updatedProduct = await ProductModel.findByIdAndUpdate(id, {
+      name, 
+      category, 
+      discription, 
+      dialradius, 
+      price
+    }, {new: true});
+    console.log(updatedProduct);
+    if(updatedProduct) {
+      res.json(updatedProduct);
+    } else {
+      res.json("Product Not found");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}

@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
-import {Nav} from 'react-bootstrap';
+import {Button, Nav} from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 import "../../Assets/CSS/NavBar.css";
 import logo from '../../Assets/Images/myLogo.png';
 import { FiShoppingCart } from 'react-icons/fi';
 import { MyContext } from '../../Common/Context';
 import { FaUserLock } from 'react-icons/fa';
+import { deleteCustomer } from '../../Services/API';
 
 function NavBar()
 {
@@ -29,6 +30,22 @@ function NavBar()
         window.location.href = '/Login';
     }
     
+    const handleDeleteCustomer = async (id) => {
+        try {
+            const deletedCustomer = await deleteCustomer(id);
+            const { response } = deletedCustomer.data;
+
+            if(response) {
+                handleLogout();
+            } else {
+                alert("Account not Deleted");
+            }
+            
+        } catch (error) {
+            console.log(error);
+            alert("Account Does not exist");
+        }
+    }
     return(
         <header className='container-fluid'>
             <img className='img' src={logo} alt='logo'/>
@@ -50,6 +67,9 @@ function NavBar()
                     <p>UserName: {session.firstName} {session.lastName} </p>
                     <p>{session.email} </p>
                     <button className='logout' onClick={handleLogout}>Logout</button>
+                    <Button variant='primary' type='submut' onClick={() => handleDeleteCustomer(session._id)}>
+                        Delete My Account
+                        </Button>
                 </div>
             )
             }

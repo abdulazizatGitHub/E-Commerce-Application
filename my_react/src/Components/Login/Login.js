@@ -4,6 +4,7 @@ import logo from '../../Assets/Images/myLogo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { getCustomer } from '../../Services/API';
 import { GoogleLogin } from "@react-oauth/google";
+
 // import getCridentials from '../../Services/API';
 
 function Login() {
@@ -11,20 +12,18 @@ function Login() {
     email: "",
     password: ""
   });
-  
-  
-  const navigate = useNavigate();
-
   const [cridentialMismatch, setCridentialMismatch] = useState(false);
-
+  
   const {email, password} = cridentials;
+  const navigate = useNavigate();
+  
+  
 
   const handleChange = (e) =>
   {
     setCridentials({...cridentials, [e.target.name]: e.target.value});
     setCridentialMismatch(false);
   }
-
   const Ref = useRef(null);
 
   const handleSubmit = async (e) => {
@@ -57,6 +56,7 @@ function Login() {
     Ref.current.focus();
   }, []);
 
+
   return (
     <div className='background'>
       <form className="form_container">
@@ -77,7 +77,7 @@ function Login() {
           )}
         </div>
         <div className='forgot-pass'>
-          <Link className='link' to='#'>Forgot Password?</Link>
+          <Link className='link' to={`/Login/ForgotPassword?email=${email}`}>Forgot Password?</Link>
         </div>
         <button onClick={handleSubmit} title="Sign In" type="submit" class="sign-in_btn">
           <span>Sign In</span>

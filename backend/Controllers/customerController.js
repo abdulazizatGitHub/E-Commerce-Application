@@ -1,4 +1,6 @@
 import customerSignupModel from '../Models/CustomerCollection.js';
+import nodemailer from 'nodemailer';
+import { google } from 'googleapis';
 
 export const addCustomer = async (req, res) =>
 {
@@ -79,6 +81,91 @@ export const getCustomer = async (req, res) =>
     }
 }
 
+export const deleteCustomer = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const result = await customerSignupModel.findByIdAndDelete(id);
+
+        if(result) {
+            res.json({response: true});
+        } else {
+            res.json({response: false});
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+    const CLIENT_ID = '870821543364-pmt96ioov75m4co707o3u471f0h6079k.apps.googleusercontent.com';
+    const CLIENT_SECRET = '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';
+    const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
+    const REFERESH_TOKEN = '1//04zoKgvZUu7WSCgYIARAAGAQSNwF-L9Ir4CVJLxpeG7OS_94Lje41Dz4Zpdl6CisfJ45EB-edx8v6RldvonoOOwA4lo3xynln0h4';
+
+    const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+
+    oAuth2Client.setCredentials({refresh_token: REFERESH_TOKEN});
+
+export const sendOTPMail = async (req, res) => {
+
+    try {
+        const email = Object.keys(req.body)[0];
+        console.log(email)
+
+        const accessToken = await oAuth2Client.getAccessToken();
+        const smtpConfig = {
+            service: 'gmail',
+            auth: {
+                type: 'OAuth2',
+                user: 'abdulazizk1430@gmail.com',
+                clientId: CLIENT_ID,
+                clientSecret: CLIENT_SECRET,
+                refreshToken: REFERESH_TOKEN,
+                accessToken: accessToken
+            }
+        }
+        const transporter = nodemailer.createTransport(smtpConfig);
+
+        const otp = Math.floor(100000 + Math.random() * 900000);
+        console.log(otp);
+        const mailOptions = {
+            from: 'WATCHGALLERY <abdulazizk1430@gmail.com>',
+            to: email,
+            subject: 'Password Reset OTP',
+            text: `Your OTP for password reset is: ${otp}`
+        }
+
+            await transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              console.log('Error occurred while sending email:', error);
+            } else {
+              console.log('Email sent:', info.response);
+              res.json(otp);
+            }
+          });
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const changePassword = async (req, res) => {
+    try {
+    const { email, password, cpassword } = req.body;
+    console.log(email);
+    const result = await customerSignupModel.findOne({email});
+
+    if (result) {
+        result.pass = password;
+        result.confirmPass = cpassword;
+        await result.save();
+      } else {
+        // Handle the case where the user is not found
+        return res.status(404).json({ success: false, message: "User not found" });
+      }      
+    
+    } catch (error) {
+        
+    }
+}
 
 
 

@@ -1,13 +1,14 @@
 import { Table, Form, Modal, Button } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import { deleteProduct, getProductData } from '../../Services/API';
+import { deleteProduct, getProductData, updateProduct } from '../../Services/API';
 import AdminHeader from './AdminHeader';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 
 function ViewProduct() {
   const [ProductDetails, setProductDetails] = useState([]);
-  const [ ProductForm, setProductForm ] = useState(false);
 
+  const [ ProductForm, setProductForm ] = useState(false);
+  const [ productId, setProductId ] = useState(null);
   const [updatedData, setUpdatedData] = useState({
     name: "",
     category: "",
@@ -26,6 +27,8 @@ function ViewProduct() {
 
     const selectedProduct = ProductDetails.find((product) => product._id === id);
     if (selectedProduct) {
+      setProductId(id);
+
       setUpdatedData({
         name: selectedProduct.name,
         category: selectedProduct.category,
@@ -60,9 +63,27 @@ function ViewProduct() {
     }
   }
 
+  const handleUpdatedData = async (e) => {
+    e.preventDefault();
+    const updatedFormData = {
+      name,
+      category,
+      discription,
+      dialradius,
+      price
+    }
+    
+    console.log(updatedFormData);
+    try {
+      await updateProduct(productId, updatedFormData);
+      
+    } catch (error) {
+      alert('Product not updated');
+    }
+  }
   useEffect(() => {
     getProductDetails();
-  }, [ProductDetails]);
+  }, []);
 
   const getProductDetails = async () => {
     const result = await getProductData();
@@ -77,6 +98,7 @@ function ViewProduct() {
       console.log(error);
     }
   }
+
   return (
     <>
       <AdminHeader />
@@ -169,7 +191,7 @@ function ViewProduct() {
                 onChange={handleInputChange}
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button onClick={handleUpdatedData} variant="primary" type="submit">
            SAVE
         </Button>
           </Form>

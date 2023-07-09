@@ -1,6 +1,6 @@
 import axios from "axios";
 //https://watchgallery-data.onrender.com
-const url = "http://localhost:5000";
+const url = "https://watchgallery-data.onrender.com";
 
 export const getCustomer = async (cridentials) =>
 {
@@ -10,6 +10,18 @@ export const getCustomer = async (cridentials) =>
 export const addCustomer = async (customerData) =>
 {
    return await axios.post(`${url}/SignUp`, customerData);
+}
+export const deleteCustomer = async (id) =>
+{
+   return await axios.delete(`${url}/${id}`);
+}
+export const sendOTP = async (email,otpEmail) => 
+{
+   return await axios.post(`${url}/Login/ForgotPassword?email=${email}`, otpEmail);
+}
+export const changePassword = async (email, resetFormData) =>
+{
+   return await axios.put(`${url}/Login/ForgotPassword?email=${email}`, {email, resetFormData});
 }
 
 export const addProduct = async (formData) =>
@@ -34,6 +46,10 @@ export const getProductById = async (id) =>
 export const deleteProduct = async (productId) =>
 {
    return await axios.delete(`${url}/Admin/ViewProduct/${productId}`);
+}
+export const updateProduct = async (id, updatedFormData) => {
+   console.log(updatedFormData);
+   return await axios.put(`${url}/Admin/ViewProduct/${id}`, updatedFormData)
 }
 
 export const initiateJazzCashPayment = async (paymentData) => {
