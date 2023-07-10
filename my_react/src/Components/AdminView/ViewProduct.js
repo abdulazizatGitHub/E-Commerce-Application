@@ -83,7 +83,7 @@ function ViewProduct() {
   }
   useEffect(() => {
     getProductDetails();
-  }, []);
+  }, [ProductDetails]);
 
   const getProductDetails = async () => {
     const result = await getProductData();

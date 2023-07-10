@@ -1,9 +1,10 @@
 import axios from "axios";
 //https://watchgallery-data.onrender.com
-const url = "https://watchgallery-data.onrender.com";
+const url = "http://localhost:5000";
 
 export const getCustomer = async (cridentials) =>
 {
+   console.log(cridentials);
    return await axios.post(`${url}/Login`, cridentials);
 }
 

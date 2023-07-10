@@ -1,13 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import '../../Assets/CSS/Login.css';
 import logo from '../../Assets/Images/myLogo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { getCustomer } from '../../Services/API';
 import { GoogleLogin } from "@react-oauth/google";
+import { MyContext } from '../../Common/Context';
 
 // import getCridentials from '../../Services/API';
 
 function Login() {
+  const {setAdmin} = useContext(MyContext);
+
   const [cridentials, setCridentials] = useState({
     email: "",
     password: ""
@@ -36,6 +39,7 @@ function Login() {
         localStorage.setItem('token', token);
         
         if(isAdmin) {
+          setAdmin(isAdmin);
           localStorage.setItem('admin', JSON.stringify(customerLogin));
           navigate('/Admin');
         } else {

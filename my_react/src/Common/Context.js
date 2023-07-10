@@ -11,7 +11,7 @@ const MYContextProvider = ({children}) =>
   const [cartCount, setCartCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-
+  const [admin, setAdmin] = useState('');
   useEffect(() => {
     let TotalPrice = 0;
     cartItems.map(item => TotalPrice += item.price * item.quantity)
@@ -63,7 +63,7 @@ const MYContextProvider = ({children}) =>
       setCartItems(item);
   }
     return(
-        <MyContext.Provider value={{data, handleDelete, cartItems, setCartItems, addToCart, removeFromCart, cartCount, setCartCount, cartTotal, setCartTotal, handleCartQuantity, totalPrice,
+        <MyContext.Provider value={{data, handleDelete, cartItems, setCartItems, addToCart, removeFromCart, cartCount, setCartCount, cartTotal, setCartTotal, handleCartQuantity, totalPrice, admin, setAdmin
         }}
         >
             {children}

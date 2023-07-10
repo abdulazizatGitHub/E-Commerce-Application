@@ -60,7 +60,8 @@ export const addCustomer = async (req, res) =>
 
 export const getCustomer = async (req, res) =>
 {
-    const {email, password } = req.body;   
+    const {email, password } = req.body; 
+    console.log(email);  
     try {
         const customerLogin = await customerSignupModel.findOne({ email });
         
