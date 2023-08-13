@@ -1,6 +1,6 @@
 import axios from "axios";
-//https://watchgallery-data.onrender.com
-const url = "http://localhost:5000";
+
+const url = "https://watchgallery-data.onrender.com";
 
 export const getCustomer = async (cridentials) =>
 {
